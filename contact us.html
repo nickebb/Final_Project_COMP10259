@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="Style.css">
+
+
+        </head>
+    <body>
+        <header>
+            
+        </header>
+        <main>
+            <div class="contact-form">
+                <h2>Contact Us</h2><br><br>
+                <form id="contact-form" method="post" action="https://formspree.io/f/xbjvgjvd">
+                    <div>
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" required minlength="5">
+                    </div>
+                    <div>
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" required minlength="5">
+
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" required >
+                    </div>
+                    <div>
+                        <label for="date">Date</label>
+                        <input type="text" id="date" placeholder="dd/mm/yy" required pattern="\d{1,2}/\d{1,2}/\d{2}">
+                    </div>
+                    <div>
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required pattern="\d{10}">
+
+                    </div>
+                    <div>
+                        <label for="message">Message</label>
+                        
+                        <textarea name="message" id="message"  minlength="50"></textarea>
+
+                    </div><br>
+                    <div>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <style>
+           
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+header {
+    animation: slideInLeft is ease-in-out;
+    background-color: #f5f8fb;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }}
+   
+}
+h1{
+    margin: 0;
+    font-size: 36px;
+}
+.input-group{
+    margin: bottom 1.5rem ;
+}
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+    margin-top: 1rem;
+    background-color: rgb(230, 240, 244);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-size-adjust: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button[type="submit"] {
+    background-color: #e61b09;
+    color: #efe6e6;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.alert {
+    color: red;
+    margin-top: 0.5rem;
+}
+
+
+
+        </style>
+
+
+        <script >
+            function validateform (event){
+    event.preventDefault();
+    const firstnameInput = document.getElementById("first-name");
+    const lastnameInput = document.getElementById("last-name");
+    const emailInput = document.getElementById("email");
+    const dateInput = document.getElementById("date");
+    const phoneInput = document.getElementById("phone");
+    const messageInput = document.getElementById("message");
+ 
+    const namepattern = /^[A-Za-z]{5,}$/;
+    const emailpattern= /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const datepattern =/^\d{1,2}\/\d{1,2}\/\d{2}$/;
+    const phonepattern =/^[\+]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.?[0-9]{4,6}$/;
+
+    if (!namepattern.test(firstnameInput.value)){
+        alert("Please enter at least 5 characters");
+        return false;
+    }
+    if (!namepattern.test(lastnameInput.value)){
+        alertalert("Please enter at least 5 characters");
+        return false;
+    }
+    if (!datepattern.test(dateInput.value)){
+        alert("please enter a valid date in dd/mm/yy");
+        return false;
+    }
+    if (phoneInput.test(phoneInput.value)){
+        alert("please enter a valid phone number.")
+        return false;
+    }
+    if (messageInput.value.length <50){
+        alert("Please enter at least 50 characters.")
+    }
+    document.getElementById("contactForm").submit();
+
+
+
+
+}
+Document.getElementById("contactform").addEventlistner("submit", validateform);
+
+
+
+
+        </script>
+
+
+
+
+
+       
+    </body>
+</html>
